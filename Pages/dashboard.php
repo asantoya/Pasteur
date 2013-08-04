@@ -14,6 +14,7 @@
 
     <!-- Le styles -->
     <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/jquery-ui-1.10.3.custom.css">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -64,14 +65,37 @@
 
     <div class="container">
 
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+      <h1>Por favor seleccione la ciudad</h1>
+      <p>A continuacion se presentan las ciudades en donde prestamos nuestros servicios.</p>
+       <?php
 
+        
+            include ('../php/conexion.php');
+            $result = mysql_query("SELECT * FROM ciudades ", $link);
+            echo "<table class='table table-hover'> \n";    
+            echo "<tr> \n";
+            echo " <tr valign='right'> \n";
+            echo "<td><b>Ciudad</b></td> \n";
+            echo "</tr> \n";
+            
+            echo "<tr> \n";
+            while ($row = mysql_fetch_row($result)){
+            echo "<td>$row[1] </td> \n";
+            echo "</tr> \n";
+            }
+
+            echo "</table> \n";
+
+					
+
+        ?>
     </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="./Bootstrap, from Twitter_files/jquery.js"></script>
     <script src="./Bootstrap, from Twitter_files/bootstrap-transition.js"></script>
     <script src="./Bootstrap, from Twitter_files/bootstrap-alert.js"></script>
