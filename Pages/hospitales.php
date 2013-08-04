@@ -7,7 +7,7 @@
     
     <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>DashBoard</title>
+    <title>seleccion de clinicas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -71,24 +71,31 @@
 
     <div class="container">
 
-      <h1>Por favor seleccione la ciudad</h1>
-      <p>A continuacion se presentan las ciudades en donde prestamos nuestros servicios.</p>
+      <h1>
+          <?php   
+            echo " Hospitales en  $_GET[ciudad]";
+            $codigo = $_GET["codigo"];
+          ?>
+      </h1>
        <?php
+
+        
             include ('../php/conexion.php');
-            $result = mysql_query("SELECT * FROM ciudades ", $link);
+            $result = mysql_query("SELECT * FROM `hospitales` WHERE `ciudad`= $codigo ORDER BY `hospitales`.`nombre` ASC ", $link);
             echo "<table class='table table-hover'> \n";    
             echo "<tr> \n";
             echo " <tr valign='right'> \n";
-            echo "<td><b>Ciudad</b></td> \n";
-            echo "</tr> \n";
+            echo "<td><b>Nombre</b></td> \n";
+            echo "<td><b>Direccion</b></td> \n";
             
             echo "<tr> \n";
             while ($row = mysql_fetch_row($result)){
                 echo "<td>";
-                echo '<a href="hospitales.php?codigo='.$row[0].'&ciudad='.$row[1].'">';
+                echo '<a href="hospitales.php?ciudad='.$row[1].'">';
                 echo "$row[1]";
                 echo "</a>";
                 echo "</td>";
+                echo "<td>$row[3]</td>";
                 echo "</tr> \n";
             }
 
