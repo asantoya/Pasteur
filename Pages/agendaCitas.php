@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-        <title>seleccion de ciudades</title>
+        <title>Agengda de citas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -71,37 +71,56 @@
 
       <h1>
           <?php   
-            echo " Hospitales en  $_GET[ciudad]";
-            $codigo = $_GET["codigo"];
+            echo " agendamiento de citas en $_GET[hospital]";
           ?>
       </h1>
-       <?php
-
         
+        <select name="doctors">
+        <?php
+            $id = $_GET["id"];
             include ('../php/conexion.php');
-            $result = mysql_query("SELECT * FROM `hospitales` WHERE `ciudad`= $codigo ORDER BY `hospitales`.`nombre` ASC ", $link);
-            echo "<table class='table table-hover'> \n";    
-            echo "<tr> \n";
-            echo " <tr valign='right'> \n";
-            echo "<td><b>Nombre</b></td> \n";
-            echo "<td><b>Direccion</b></td> \n";
-            
-            echo "<tr> \n";
-            while ($row = mysql_fetch_row($result)){
-                echo "<td>";
-                echo '<a href="agendaCitas.php?hospital='.$row[1].'&id='.$row[0].'">';
-                echo "$row[1]";
-                echo "</a>";
-                echo "</td>";
-                echo "<td>$row[3]</td>";
-                echo "</tr> \n";
-            }
-
-            echo "</table> \n";
-
-					
-
+             $result = mysql_query("SELECT * FROM medico WHERE `Hospital`=$id ", $link);
+            while($medico=mysql_fetch_array($result))
+            echo "<option  value='".$medico[1]."'>".$medico[1]." " .$medico[2]."</option>"; 
         ?>
+       </select>
+
+        <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+            <input class="span2" size="16" type="text" value="12-02-2012" id="datepicker">
+            <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+        
+        <div class="input-append bootstrap-timepicker">
+            <input id="timepicker1" type="text" class="input-small">
+            <span class="add-on"><i class="icon-time"></i></span>
+        </div>
+       <?php
+//
+//        
+//            include ('../php/conexion.php');
+//            $result = mysql_query("SELECT * FROM `hospitales` WHERE `ciudad`= $codigo ORDER BY `hospitales`.`nombre` ASC ", $link);
+//            echo "<table class='table table-hover'> \n";    
+//            echo "<tr> \n";
+//            echo " <tr valign='right'> \n";
+//            echo "<td><b>Nombre</b></td> \n";
+//            echo "<td><b>Direccion</b></td> \n";
+//            
+//            echo "<tr> \n";
+//            while ($row = mysql_fetch_row($result)){
+//                echo "<td>";
+//                echo '<a href="hospitales.php?ciudad='.$row[1].'">';
+//                echo "$row[1]";
+//                echo "</a>";
+//                echo "</td>";
+//                echo "<td>$row[3]</td>";
+//                echo "</tr> \n";
+//            }
+//
+//            echo "</table> \n";
+//
+//					
+//
+//        ?>
     </div> <!-- /container -->
 
 <!-- Placed at the end of the document so the pages load faster -->
