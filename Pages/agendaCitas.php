@@ -14,6 +14,9 @@
         <!-- Le styles -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="../css/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
+        <link href="../css/bootstrap-timepicker.css" rel="stylesheet">
+        <link href="../css/bootstrap-timepicker.min.css" rel="stylesheet">
+        
         <!--[if IE 7]>
         <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
         <![endif]-->
@@ -127,6 +130,8 @@
 <script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="../js/bootstrap.min.js" type="text/javascript"></script>
 <script src="../js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap-timepicker.js" type="text/javascript"></script>
+<script src="../js/bootstrap-timepicker.min.js" type="text/javascript"></script>
 <!--<script src="assets/js/google-code-prettify/prettify.js" type="text/javascript"></script>-->
 <!--<script src="assets/js/docs.js" type="text/javascript"></script>-->
 <script src="../js/demo.js" type="text/javascript"></script>
