@@ -10,7 +10,7 @@ include"conexion.php";
 if ( $_REQUEST['loginBtn'] == "login" ){
 	if($user != null or $pass != null){
 
-		$sql = "SELECT Usuario, Pass from usuarios WHERE Usuario='$user' and Pass='$pass' ";
+		$sql = "SELECT id, Usuario, Pass from usuarios WHERE Usuario='$user' and Pass='$pass' ";
 		$result = mysql_query($sql, $link);
 		if (mysql_num_rows($result) == 0) {
 			echo "usuario y/o contraseña incorrecta, nada para mostrar <br>";
@@ -28,6 +28,7 @@ if ( $_REQUEST['loginBtn'] == "login" ){
 				}
                 $_SESSION['user'] = $user;
                 $_SESSION['pass'] = $pass;
+                $_SESSION['user_id'] = $row["id"];
 				mysql_free_result($result);
          				header("Location: ../pages/dashboard.php");
 			}else{
