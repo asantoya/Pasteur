@@ -102,6 +102,8 @@
 					
 
         ?>
+        
+        <div><a href="javascript:history.back()">Atras</a></div>
     </div> <!-- /container -->
 
 <!-- Placed at the end of the document so the pages load faster -->
