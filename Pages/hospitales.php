@@ -49,7 +49,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="http://getbootstrap.com/2.3.2/examples/starter-template.html#">NUVOLA</a>
+          <a class="brand" href="http://getbootstrap.com/2.3.2/examples/starter-template.html#">AGENDAMIENTO DE CITAS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="http://getbootstrap.com/2.3.2/examples/starter-template.html#">Home</a></li>

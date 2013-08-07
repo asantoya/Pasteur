@@ -52,7 +52,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="http://getbootstrap.com/2.3.2/examples/starter-template.html#">NUVOLA</a>
+          <a class="brand" href="http://getbootstrap.com/2.3.2/examples/starter-template.html#">AGENDAMIENTO DE CITAS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="http://getbootstrap.com/2.3.2/examples/starter-template.html#">Home</a></li>
@@ -77,26 +77,36 @@
             echo " agendamiento de citas en $_GET[hospital]";
           ?>
       </h1>
+        <form  class="form-horizontal" action="../php/agendar.php">
+            
+            <select name="doctor">
+                <?php
+                    $id = $_GET["id"];
+                    include ('../php/conexion.php');
+                     $result = mysql_query("SELECT * FROM medico WHERE `Hospital`=$id ", $link);
+                    while($medico=mysql_fetch_array($result))
+                    echo "<option  value='".$medico[0]."'>".$medico[1]." " .$medico[2]."</option>"; 
+                ?>
+            </select>
+            
+            <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                <input class="span2" size="16" type="text" value="12-02-2012" id="datepicker" name="date">
+                <span class="add-on"><i class="icon-th"></i></span>
+            </div>
+            
+            <div class="input-append bootstrap-timepicker">
+                <input id="timepicker1" type="text" class="input-small" name="time">
+                <span class="add-on"><i class="icon-time"></i></span>
+            </div>
+            
+            <button class="btn btn-primary" type="submit" name="citarBtn" value="citar">Apartar cita</button>
+            
+        </form>
         
-        <select name="doctors">
-        <?php
-            $id = $_GET["id"];
-            include ('../php/conexion.php');
-             $result = mysql_query("SELECT * FROM medico WHERE `Hospital`=$id ", $link);
-            while($medico=mysql_fetch_array($result))
-            echo "<option  value='".$medico[1]."'>".$medico[1]." " .$medico[2]."</option>"; 
-        ?>
-       </select>
 
-        <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-            <input class="span2" size="16" type="text" value="12-02-2012" id="datepicker">
-            <span class="add-on"><i class="icon-th"></i></span>
-        </div>
         
-        <div class="input-append bootstrap-timepicker">
-            <input id="timepicker1" type="text" class="input-small">
-            <span class="add-on"><i class="icon-time"></i></span>
-        </div>
+        
+        
        <?php
 //
 //        
